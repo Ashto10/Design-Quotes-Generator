@@ -1,46 +1,84 @@
-.container 
-    display: block
-    margin: 10% auto 0
-    background: whitesmoke
-    width: 80%
-    max-width: 600px
-    padding: 1.25em
-    border-radius: 10px
-    
+.container
+  position: absolute
+  display: block
+  background: whitesmoke
+  width: 80%
+  min-width: 400px
+  max-width: 800px
+  padding: 1.25em
+  border-radius: 10px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  
 .quote-container
-    font-family: "Sanchez", serif
-    padding: 1em 2em
+  padding: 1em 2em
+  font-size: 1.2em
 
 #quote
-    font-size: 1.2em
-    text-align: justify
+  font-size: 1.2em
+  text-align: left
+  position: relative
+  font-family: "Sanchez", serif
+  &::before
+    height: 1em
+    width: 1em
+    font-size: 3em
+    position: absolute
+    content: '“'
+    top: -0.3em
+    left: -0.45em
 
 #author
-    font-size: 0.9em
-    font-style: italic
-    text-align: right
-
-.social-button
-    border-radius: 5px
-    border: none
-    width: 3rem
-    height: 3rem
-    margin: 0 0.25em
-    vertical-align: middle
-    color: whitesmoke
-    text-align: center
-    font-family: "Roboto", sans-serif
-    
-.social-button:active
+  display: block
+  font-style: italic
+  text-align: right
+  font-family: "Roboto", sans-serif
+  
+a
+  color: inherit
+  text-decoration: none
+  &:hover
     opacity: 0.5
-    color: black
-    
+  
+.next-button-container
+  height: 3rem
+  margin: 0em
+  
+.social-button
+  border-radius: 5px
+  border: none
+  width: 3rem
+  height: 100%
+  margin: 0 0.25em
+  vertical-align: middle
+  color: whitesmoke
+  text-align: center
+  font-family: "Roboto", sans-serif
+
+.social-button:active
+  opacity: 0.5
+  color: black
+
 i.fa
-    font-size: 2.25em
-    
+  font-size: 2em
+
 #next
-    @extend .social-button
-    float: right
-    font-size: 1em
+  @extend .social-button
+  font-size: 1.2em
+  width: auto
+  padding: 0 .75em
+  float: right
+
+@media only screen and (orientation: portrait)
+  body
+    font-size: 20pt
+    
+  .next-button-container
+    height: 5rem
+    
+  .social-button
+    width: 5rem
+  
+  #next
     width: auto
-    padding: 0 1em
