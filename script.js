@@ -1,5 +1,12 @@
 'use strict';
 
+/** Depending on where this is being hosted, cors-anywhere may be required. */
+jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
+
 var quoteText = "";   /** Holds the returned quote text */
 var authorText = "";  /** Holds the quote author's name */
 
@@ -23,13 +30,10 @@ function ChangeColor() {
 * Ajax call that fetches quote data, parses the quote and author, and updates their respective containers.
 */
 function FetchQuote() {
-  // Depending on where the file is hosted, cors-anywhere may be required
-  var cors = ""; // https://cors-anywhere.herokuapp.com/
-
   $("#quote, #author").slideUp();
 
   $.ajax({
-    url: cors + "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
+    url: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=",
     dataType: "json",
     cache : false,
     timeout: 5000,

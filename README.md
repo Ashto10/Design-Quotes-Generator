@@ -7,6 +7,7 @@ A simple Javascript applet written for a [FreeCodeCamp challenge](https://learn.
 ### Dependencies
 *Hard dependencies*
 1. [jQuery](https://jquery.com/)
+2. A Sass compiler
 
 *Soft dependencies*
 1. [Normalize.css](https://github.com/necolas/normalize.css/)
